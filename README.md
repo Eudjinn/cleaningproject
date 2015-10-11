@@ -1,4 +1,4 @@
-# The Code book for the "Getting and Cleaning Data" course project
+# The README file for "Getting and Cleaning Data" course project
 
 ## Repository contents
 
