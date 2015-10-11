@@ -3,9 +3,11 @@
 The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. 
 The goal is to prepare tidy data that can be used for later analysis. 
 This is done by the function "runAnalysis()" which is implemented in the script: "run_analysis.R". 
+
 ## RAW Data 
-[The RAW data - zip archive](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+[The RAW data - zip archive](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)  
 For simplicity this file was donwloaded manually, unpacked and included in repository in the folder "UCI HAR Dataset". 
+
 ### Short summary about the RAW data
 #### For each record it is provided:
 * Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
@@ -27,9 +29,12 @@ For simplicity this file was donwloaded manually, unpacked and included in repos
 The contents of the following folders are not used in this analysis and its description will not be porovided in this document.
 * 'train/Inertial Signals/
 * 'test/Inertial Signals/ 
+
 ### Tidy data set creation steps
 #### 1. Download and unzip the RAW data. 
-It is expected by the run_analysis.R that the data is unzipped into working directory where the script is located. 
+It is expected by the run_analysis.R that the data is unzipped into working directory where the script is located.   
+Next steps are performed by the run_analysis.R script automatically.
+
 #### 2. Read the contents of the following files of the RAW data: 
 Read the test set data from: "./UCI HAR Dataset/test/X_test.txt"  
 Read the training set data from: "./UCI HAR Dataset/train/X_train.txt"  
@@ -39,10 +44,12 @@ Read activities ids corresponding to measurements in test set from: "./UCI HAR D
 Read activities ids corresponding to measurements in training set from: "./UCI HAR Dataset/train/y_train.txt"  
 Read subject ids corresponding to measurements in test set from: "./UCI HAR Dataset/test/subject_test.txt"  
 Read subject ids corresponding to measurements in test set from: "./UCI HAR Dataset/train/subject_train.txt" 
+
 #### 3. Merge the training and the test sets to create one data set.
 Features are added as names for the columns of the merged table.
 Subject ids and activity ids for each measurement are also added to the table as first two columns. 
-#### 4. Extracts only the measurements on the mean and standard deviation for each measurement.
+
+#### 4. Extract only the measurements on the mean and standard deviation for each measurement.
 In order to select features that we need to include in a tidy data set, their names are transformed according to rules of R using make.names function, as a result we get a unique list of names with special symbols such as parenthesis '()' and comas ',' replaced with dot '.'  
 **For example:** *"tBodyAcc-mean()-X"* is converted to *"tBodyAcc.mean...X"*   
 There are different measurements which contain the word mean and std (also with upper case firs letter) but in this analysis we are interested only in the result of mean() and std() functions, thus some of the measurements are excluded.  
@@ -52,13 +59,17 @@ Measurements excluded from the resulting tidy data set have different form. Even
 For example: feature names representing a result of the *angle* function with *gravityMean* as a parameter is excluded.
 Features with *meanFreq* in their names are excluded too. 
 As a result, 66 features has been selected for further analysis. 
+
 #### 5. Replace activity ids with descriptive activity names to name the activities in the data set.
 This is done by joining table with measurements with the table containing activity lables by *activityId*   
+
 #### 6. Appropriately label the data set with descriptive variable names. 
 After filtering out feature names, we remove all the dots '.' from their names and make the first letter of the word "mean" and "std" in the upper case.  
 **For example:** *"tBodyAcc.mean...X"* is converted to *"tBodyAccMeanX"*  
+
 #### 7. From the data set formed on the previous step, a second, independent tidy data set is created with the average of each variable for each activity and each subject. 
 In order to reflect the fact that new dataset contains the average of the measurements, a suffux "Avg" is added to feature names.  
+
 ### Tidy data description
 Here is a list of columns in the tidy data set:
 "subjectId" - the identifier of a person who carried the device while gathering measurements.  
