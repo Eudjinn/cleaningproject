@@ -53,12 +53,12 @@ Subject ids and activity ids for each measurement are also added to the table as
 In order to select features that we need to include in a tidy data set, their names are transformed according to rules of R using make.names function, as a result we get a unique list of names with special symbols such as parenthesis '()' and comas ',' replaced with dot '.'  
 **For example:** *"tBodyAcc-mean()-X"* is converted to *"tBodyAcc.mean...X"*   
 There are different measurements which contain the word mean and std (also with upper case firs letter) but in this analysis we are interested only in the result of mean() and std() functions, thus some of the measurements are excluded.  
-**For example:**
-Measurements selected for further analysis have .mean. and .std. in their names after names transformation. 
-Measurements excluded from the resulting tidy data set have different form. Even though some of them contain "Mean" or "Std" in their names, they are not a result of mean() and std() applied to primary measurements.
-For example: feature names representing a result of the *angle* function with *gravityMean* as a parameter is excluded.
-Features with *meanFreq* in their names are excluded too. 
-As a result, 66 features has been selected for further analysis. 
+
+Measurements selected for further analysis have .mean. and .std. in their names after names transformation.  
+Measurements excluded from the resulting tidy data set have different form. Even though some of them contain "Mean" or "Std" in their names, they are not a result of mean() and std() applied to primary measurements.  
+**For example:** feature names representing a result of the *angle* function with *gravityMean* as a parameter is excluded.
+Features with *meanFreq* in their names are excluded too.  
+As a result, 66 features has been selected for further analysis.  
 
 #### 5. Replace activity ids with descriptive activity names to name the activities in the data set.
 This is done by joining table with measurements with the table containing activity lables by *activityId*   
