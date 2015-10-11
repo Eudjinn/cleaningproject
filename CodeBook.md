@@ -74,7 +74,7 @@ In order to reflect the fact that new dataset contains the average of the measur
 Here is a list of columns in the tidy data set:
 "subjectId" - the identifier of a person who carried the device while gathering measurements.  
 "activityName" - the name of the activity, one of the following: "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"  
-The rest of the columns listed below contain average measurements per subject and activity containing numeric values (double):
+The rest of the columns listed below contain average measurements per subject and activity containing numeric values (double):  
 "tBodyAccMeanXAvg"   
 "tBodyAccMeanYAvg"  
 "tBodyAccMeanZAvg"  
