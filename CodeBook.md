@@ -64,80 +64,100 @@ As a result, 66 features has been selected for further analysis.
 This is done by joining table with measurements with the table containing activity lables by *activityId*   
 
 #### 6. Appropriately label the data set with descriptive variable names. 
-After filtering out feature names, we remove all the dots '.' from their names and make the first letter of the word "mean" and "std" in the upper case.  
+After filtering out feature names, we remove all the dots '.' from their names and make the first letter of the word "mean" and "std" in the upper case.   
 **For example:** *"tBodyAcc.mean...X"* is converted to *"tBodyAccMeanX"*  
-
+Names are kept short, i.e., *"Acc"* instead of more explicit *"Accelerometer"* and *"Gyro"* instead of *"Gyroscope"*. Also *"t"* and *"f"* which stand for *"time"* and *"frequency"* domains are kept intact since their meaning is quite obvious given that the pattern of all variable names is described in the "features_info.txt" file from the original data set. 
 #### 7. From the data set formed on the previous step, a second, independent tidy data set is created with the average of each variable for each activity and each subject. 
 In order to reflect the fact that new dataset contains the average of the measurements, a suffux "Avg" is added to feature names.  
 
 ### Tidy data description
-Here is a list of columns in the tidy data set:
-"subjectId" - the identifier of a person who carried the device while gathering measurements.  
-"activityName" - the name of the activity, one of the following: "WALKING", "WALKING_UPSTAIRS", "WALKING_DOWNSTAIRS", "SITTING", "STANDING", "LAYING"  
-The rest of the columns listed below contain average measurements per subject and activity containing numeric values (double):  
-"tBodyAccMeanXAvg"   
-"tBodyAccMeanYAvg"  
-"tBodyAccMeanZAvg"  
-"tBodyAccStdXAvg"  
-"tBodyAccStdYAvg"  
-"tBodyAccStdZAvg"  
-"tGravityAccMeanXAvg"  
-"tGravityAccMeanYAvg"  
-"tGravityAccMeanZAvg"  
-"tGravityAccStdXAvg"  
-"tGravityAccStdYAvg"  
-"tGravityAccStdZAvg"  
-"tBodyAccJerkMeanXAvg"  
-"tBodyAccJerkMeanYAvg"  
-"tBodyAccJerkMeanZAvg"  
-"tBodyAccJerkStdXAvg"  
-"tBodyAccJerkStdYAvg"  
-"tBodyAccJerkStdZAvg"  
-"tBodyGyroMeanXAvg"  
-"tBodyGyroMeanYAvg"  
-"tBodyGyroMeanZAvg"  
-"tBodyGyroStdXAvg"  
-"tBodyGyroStdYAvg"  
-"tBodyGyroStdZAvg"  
-"tBodyGyroJerkMeanXAvg"  
-"tBodyGyroJerkMeanYAvg"  
-"tBodyGyroJerkMeanZAvg"  
-"tBodyGyroJerkStdXAvg"  
-"tBodyGyroJerkStdYAvg"  
-"tBodyGyroJerkStdZAvg"  
-"tBodyAccMagMeanAvg"  
-"tBodyAccMagStdAvg"  
-"tGravityAccMagMeanAvg"  
-"tGravityAccMagStdAvg"  
-"tBodyAccJerkMagMeanAvg"  
-"tBodyAccJerkMagStdAvg"  
-"tBodyGyroMagMeanAvg"  
-"tBodyGyroMagStdAvg"  
-"tBodyGyroJerkMagMeanAvg"  
-"tBodyGyroJerkMagStdAvg"  
-"fBodyAccMeanXAvg"  
-"fBodyAccMeanYAvg"  
-"fBodyAccMeanZAvg"  
-"fBodyAccStdXAvg"  
-"fBodyAccStdYAvg"  
-"fBodyAccStdZAvg"  
-"fBodyAccJerkMeanXAvg"  
-"fBodyAccJerkMeanYAvg"  
-"fBodyAccJerkMeanZAvg"  
-"fBodyAccJerkStdXAvg"  
-"fBodyAccJerkStdYAvg"  
-"fBodyAccJerkStdZAvg"  
-"fBodyGyroMeanXAvg"  
-"fBodyGyroMeanYAvg"  
-"fBodyGyroMeanZAvg"  
-"fBodyGyroStdXAvg"  
-"fBodyGyroStdYAvg"  
-"fBodyGyroStdZAvg"  
-"fBodyAccMagMeanAvg"  
-"fBodyAccMagStdAvg"   
-"fBodyBodyAccJerkMagMeanAvg"  
-"fBodyBodyAccJerkMagStdAvg"  
-"fBodyBodyGyroMagMeanAvg"  
-"fBodyBodyGyroMagStdAvg"  
-"fBodyBodyGyroJerkMagMeanAvg"  
-"fBodyBodyGyroJerkMagStdAvg" 
+Here is a list of columns in the tidy data set:  
+subjectId - the identifier of a person who carried the device while gathering measurements. Integer values from 1 to 30.  
+activityName - the name of the activity, one of the following:  
+* WALKING  
+* WALKING_UPSTAIRS  
+* WALKING_DOWNSTAIRS  
+* SITTING
+* STANDING  
+* LAYING  
+
+The rest of the columns listed below contain average of the original measurements from the RAW data per subject and activity containing numeric values (double) with original units.  
+
+Variable names structure explained:
+* *t* or *f* stands for *time* or *frequency* domain,
+* Body/Gravity - division of acceleration signal into Body and Gravity components,
+* Jerk - if *Jerk* is present in the name, it means this is a measurement of Jerk signal
+* Std - stadard deviation of the measurements
+* Mean - mean of the measurements
+* X/Y/Z - Axis of the measurement
+* Avg - suffix which indicates that the variable holds an average of the original measurements subject per activity.
+
+List of variables:   
+tBodyAccMeanXAvg  
+tBodyAccMeanYAvg  
+tBodyAccMeanZAvg  
+tBodyAccStdXAvg  
+tBodyAccStdYAvg  
+tBodyAccStdZAvg  
+tGravityAccMeanXAvg  
+tGravityAccMeanYAvg  
+tGravityAccMeanZAvg  
+tGravityAccStdXAvg  
+tGravityAccStdYAvg  
+tGravityAccStdZAvg  
+tBodyAccJerkMeanXAvg  
+tBodyAccJerkMeanYAvg  
+tBodyAccJerkMeanZAvg  
+tBodyAccJerkStdXAvg  
+tBodyAccJerkStdYAvg  
+tBodyAccJerkStdZAvg  
+tBodyGyroMeanXAvg  
+tBodyGyroMeanYAvg  
+tBodyGyroMeanZAvg  
+tBodyGyroStdXAvg  
+tBodyGyroStdYAvg  
+tBodyGyroStdZAvg  
+tBodyGyroJerkMeanXAvg  
+tBodyGyroJerkMeanYAvg  
+tBodyGyroJerkMeanZAvg  
+tBodyGyroJerkStdXAvg  
+tBodyGyroJerkStdYAvg  
+tBodyGyroJerkStdZAvg  
+tBodyAccMagMeanAvg  
+tBodyAccMagStdAvg  
+tGravityAccMagMeanAvg  
+tGravityAccMagStdAvg  
+tBodyAccJerkMagMeanAvg  
+tBodyAccJerkMagStdAvg  
+tBodyGyroMagMeanAvg  
+tBodyGyroMagStdAvg  
+tBodyGyroJerkMagMeanAvg  
+tBodyGyroJerkMagStdAvg  
+fBodyAccMeanXAvg  
+fBodyAccMeanYAvg  
+fBodyAccMeanZAvg  
+fBodyAccStdXAvg  
+fBodyAccStdYAvg  
+fBodyAccStdZAvg  
+fBodyAccJerkMeanXAvg  
+fBodyAccJerkMeanYAvg  
+fBodyAccJerkMeanZAvg  
+fBodyAccJerkStdXAvg  
+fBodyAccJerkStdYAvg  
+fBodyAccJerkStdZAvg  
+fBodyGyroMeanXAvg  
+fBodyGyroMeanYAvg  
+fBodyGyroMeanZAvg  
+fBodyGyroStdXAvg  
+fBodyGyroStdYAvg  
+fBodyGyroStdZAvg  
+fBodyAccMagMeanAvg  
+fBodyAccMagStdAvg   
+fBodyBodyAccJerkMagMeanAvg  
+fBodyBodyAccJerkMagStdAvg  
+fBodyBodyGyroMagMeanAvg  
+fBodyBodyGyroMagStdAvg  
+fBodyBodyGyroJerkMagMeanAvg  
+fBodyBodyGyroJerkMagStdAvg  
+
+For more specific details please refer to original features description in "features_info.txt" file.  

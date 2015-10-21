@@ -15,7 +15,7 @@ Below is the list of files and folders with short descriptions:
 
 ## Using the script
 
-1. Clone the repository to your machine where R and RStudio are installed and configured. It is expected that all the pachages and libraries that are needed for the script to work are installed and loaded. This should be the case for everyone who is doing the course anyway.
+1. Clone the repository to your machine where R and RStudio are installed and configured. It is expected that all the packages and libraries that are needed for the script to work are installed and loaded. This should be the case for everyone who is doing the course anyway.
 2. Set the working directory in RStudio to the folder where the repository contents have been cloned, so that run_analysis.R is in that folder along with the rest of the files.
 3. Load the script: 
 \> source("run_analysis.R")
